@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Text Processing Service</title>
+</head>
+<body>
+    <div class="auth-outer-container">
+        <div class="top-bar top-bar-auth">
+            <div class="top-left">
+                <div class="logo-container">
+                    <img class="logo" src="{{ url_for('static', filename='assets/aws_logo.png') }}" alt="aws_logo">
+                </div>
+                <div class="app-name">Text Processing Service</div>
+            </div>
+            <div class="top-right">Authentication</div>
+        </div>
+        <div class="auth-container">
+            <div id="loginContainer">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+            <div id="registerContainer" style="display: none;">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required> 
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="content-container" style="display: none">
+        <div class="top-bar">
+            <div class="top-left">
+                <div class="logo-container">
+                    <img class="logo" src="{{ url_for('static', filename='assets/aws_logo.png') }}" alt="aws_logo">
+                </div>
+                <div class="app-name">Text Processing Service</div>
+            </div>
+            <div class="user-actions"></div>
+        </div>
+        <div class="navigation-bar">
+            <div class="navigation-button navigation-button-left">Process</div>
+            <div class="navigation-button navigation-button-right">Library</div>
+        </div>
+        <div class="content" id="process-content">
+            <div class="round-container">
+                <div class="prompt-field">
+                    <h3>Prompt:</h3>
+                    <input type="text" id="prompt" name="prompt">
+                </div>
+                <div class="subform upload-single">
+                    <h3>Process Single</h3>
+                    <div class="input-row">
+                        <div class="left-part-text">
+                            <h5 class="input-row-label">Text:</h5>
+                            <textarea class="upload-text" type="text" id="text" name="text"></textarea>
+                        </div>
+                        <button class="process-btn" id="singleTextUpload">Upload</button>
+                    </div>
+                    <div class="input-row">
+                        <div class="left-part-btn">
+                            <h5 class="input-row-label">Image:</h5>
+                            <label class="select-class" for="selectImage"><h5>Select File</h5><input class="upload-class" type="file" id="selectImage" name="selectImage" accept="image/*"></label>
+                            <h5 id="single-button" class="confirmation"><!--js--></h5>
+                        </div>
+                        <button class="process-btn" id="singleImageUpload">Upload</button>
+                    </div>
+                </div>
+                <div class="subform upload-batch">
+                    <h3>Process Batch</h3>
+                    <div class="input-row">
+                        <div class="left-part-btn">
+                            <h5 class="input-row-label">Directory:</h5>
+                            <label class="select-class" for="selectDirectory"><h5>Select File</h5><input class="upload-class" type="file" id="selectDirectory" name="selectDirectory" directory="" webkitdirectory="" mozdirectory=""></label>
+                            <h5 id="batch-button" class="confirmation"><!--js--></h5>
+                        </div>
+                        <button class="process-btn" id="batchUpload">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="library-content">
+            <div class="round-container library-container">
+                <!-- Library data will be dynamically added here -->
+            </div>
+        </div>
+        <div class="content" id="job-content">
+            <div class="round-container job-container">
+                <div class="round-container filelist-container">
+                    <!-- File list will be dynamically added here -->
+                </div>
+                <div class="round-container filecontent-container">
+                    <!-- File content will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    var static_url = "{{ url_for('static', filename='') }}";
+</script>

@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global styles */
+* {
+    font-family: 'Roboto';
+    overflow: hidden;
+}
+
+body {
+    background: 
+    linear-gradient( -80deg, rgb(212, 206, 194), rgba(253, 142, 41, 0)) top,
+    linear-gradient(-45deg, orange, rgba(253, 142, 41, 0)) bottom;
+    height: 100svh;
+}
+
+/* Scroll Bar */
+
+*::-webkit-scrollbar {
+   width: 15px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+   background: #77777766;
+   border-radius: 20px;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+   background: #7777779f;
+   border-radius: 20px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+   background: #7777779f;
+}
+
+/* Container */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Top bar */
+.top-bar {
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333c2;
+    color: #fff;
+    padding: 0px 20px;
+    border-radius: 10px;
+}
+
+.top-bar .top-left {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 30px;
+}
+
+.top-bar .logo-container {
+    height: 60%;
+}
+
+.top-bar .logo {
+    height: 100%;
+}
+
+.app-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF9900;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.user-actions button:hover {
+    background-color: #cb7a00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation bar */
+.navigation-bar {
+    width: 30%;
+    height: 36px;
+    background-color: #333;
+    border-radius: 0 0 30px 30px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navigation-button {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navigation-button:hover {
+    background-color: #555;
+}
+
+.navigation-button-left {
+    border-radius: 0 0 0 30px;
+}
+
+.navigation-button-right {
+    border-radius: 0 0 30px 0;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: disabled;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 50%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 30px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+.modal button {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
+    background-color: #cb7a00;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+}
+
+/* Error message container styles */
+.error-message {
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+
+/* Styling for process tab */
+.content {
+    margin-top: 20px;
+}
+
+.round-container {
+    height: 475px;
+    background-color: #f0f0f063;
+    padding: 20px 50px 50px 50px;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+.prompt-field {
+    margin-bottom: 5px;
+}
+
+.prompt-field input {
+    width: 100%
+}
+
+.subform {
+    margin-top: 30px;
+    background-color: #f9f9f988;
+    border-radius: 15px;
+    padding: 0px 30px;
+}
+
+.upload-single, .upload-batch {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-row,
+.input-row label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-part-text {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-part-btn {
+    display: flex;
+    width: 175px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.process-btn {
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.process-btn:hover {
+    background-color: #cb7a00;
+}
+
+.upload-class {
+    display: none;
+}
+
+.select-class {
+    height: 40px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #777;
+    color: white;
+}
+
+.confirmation {
+    font-size: small;
+    position: absolute;
+    left: 275px;
+}
+
+.upload-text {
+    width: 1000px;
+    height: 75px;
+    border-radius: 5px;
+    resize: none;
+    overflow-y: auto;
+}
+
+/* Styling for library tab */
+
+.library-container {
+    overflow-y: auto;
+}
+
+.library-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    border-top: 1px solid #77777785;
+    border-radius: 15px;
+    border-bottom: 1px solid #77777785;
+}
+
+/* .library-row:last-child {
+    border-bottom: none;
+} */
+
+.library-second-col-inclusive {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.library-second-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 2;
+    width: 100%;
+}
+
+.library-third-col {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+
+.state1 {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}
+
+.library-button-1 {
+    background-color: #ff9900;
+    background-color: var(--background-color);
+    width: 90px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.library-button-1:hover {
+    background-color: #cb7a00;
+    background-color: var(--hover-background-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: #FF9900; /* Adjust progress bar color */
+    border-radius: 5px;
+}
+
+.library-button-2 {
+    height: 40px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #418a00;
+    color: white;
+    cursor: pointer;
+}
+
+.library-button-2:hover {
+    background-color: #2b5d00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the job tab */
+
+.job-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.filelist-container {
+    height: auto;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.filelist-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 500px;
+
+    border-top: 1px solid #ddd;
+    border-radius: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.file-type-icon {
+    height: 50px;
+}
+
+.file-name {
+    width: 150px;
+}
+
+.filelist-description {
+    display: flex;
+    align-items: center;
+}
+
+.filelist-btns {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filelist-btn {
+    background-color: #ff9900;
+    background-color: var(--background-color);
+    width: 90px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.filelist-btn:hover {
+    background-color: #cb7a00;
+    background-color: var(--hover-background-color);
+}
+
+.filecontent-container {
+    height: auto;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filecontent-content {
+    width: 95%;
+    height: 80%;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+}
+
+.filecontent-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.filecontent-text {
+    font-family:"Montserrat", sans-serif;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    resize: none;
+    overflow-y: auto;
+}
+
+.filecontent-copyicon {
+    height: 30px;
+}
+
+.filecontent-bottom-copypart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.file-state-icon {
+    height: 20px;
+}
+
+.filelist-btn-1 {
+    background-color: #ff9900;
+    width: 90px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.filelist-btn-1:hover {
+    background-color: #cb7a00;
+}
+
+/*  auth container related - starts */
+
+/* Container */
+.auth-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, #ff9900, #834e00);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form itself */
+#loginForm, #registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input fields */
+#loginForm input, #registerForm input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+
+#loginForm input:focus, #registerForm input:focus {
+    border: 1px solid #ff9900;
+}
+
+/* Submit button */
+#loginForm button, #registerForm button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    color: #ff9900;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#loginForm button:hover, #registerForm button:hover {
+    background-color: #ff9900;
+    color: #fff;
+}
+
+/* Styles for form redirection links */
+#showRegister, #showLogin {
+    color: #ff9900;
+    text-decoration: none;
+}
+
+#showRegister:active, #showLogin:active {
+    color: #cb7a00;
+}
+
+.top-bar-auth {
+    background-color: #b16a00f1;
+}
+/*  auth container related - ends */
+
+
+.swal2-loader {
+    border-color: #ff9900 !important; /* Change to your desired color */
+    border-top-color: transparent !important; /* Ensure top color is transparent for spinning effect */
+}
